@@ -449,6 +449,8 @@ $RECYCLE.BIN/
 # Only exists if Bazel was run
 /bazel-out
 
+/.angular
+
 # dependencies
 /node_modules
 
