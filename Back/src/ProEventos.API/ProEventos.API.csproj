@@ -5,6 +5,12 @@
     <DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="Resources\Perfil - Copy\**" />
+    <Content Remove="Resources\Perfil - Copy\**" />
+    <EmbeddedResource Remove="Resources\Perfil - Copy\**" />
+    <None Remove="Resources\Perfil - Copy\**" />
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.6">
@@ -24,6 +30,9 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ProEventos.Application\ProEventos.Application.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\Perfil\" />
   </ItemGroup>
 </Project>
 
