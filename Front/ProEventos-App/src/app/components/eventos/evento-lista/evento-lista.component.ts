@@ -54,19 +54,22 @@ export class EventoListaComponent implements OnInit {
   public ngOnInit(): void {
     this.spinner.show();
     this.carregarEventos();
+
   }
 
   public alterarImagem(): void {
     this.exibirImagem = !this.exibirImagem;
+
   }
 
-    public mostraImagem(imagemURL: string): string {
+  public mostraImagem(imagemURL: string): string {
     return (imagemURL !== '')
       ? `${environment.apiURL}resources/images/${imagemURL}`
       : 'assets/img/semImagem.jpeg';
   }
 
   public carregarEventos(): void {
+    this.spinner.show();
     this.eventoService.getEventos().subscribe({
       next: (eventos: Evento[]) => {
         this.eventos = eventos;
@@ -109,7 +112,7 @@ export class EventoListaComponent implements OnInit {
     this.modalRef.hide();
   }
 
-    detalheEvento(id: number): void{
+  detalheEvento(id: number): void{
     this.router.navigate([`eventos/detalhe/${id}`]);
   }
 
