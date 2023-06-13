@@ -33,6 +33,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\Perfil\" />
+    <Folder Include="Resources\Perfil\" />
   </ItemGroup>
 </Project>
 
