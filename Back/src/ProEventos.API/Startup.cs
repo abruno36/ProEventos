@@ -1,14 +1,9 @@
-using System;
-using System.IO;
-using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -16,16 +11,20 @@ using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using ProEventos.Api.Helpers;
 using ProEventos.Application;
 using ProEventos.Application.Contratos;
 using ProEventos.Domain.Identity;
 using ProEventos.Persistence;
 using ProEventos.Persistence.Contextos;
 using ProEventos.Persistence.Contratos;
+using System;
+using System.IO;
+using System.Text;
 
 namespace ProEventos.API
 {
-	public class Startup
+    public class Startup
 	{
 		public Startup(IConfiguration configuration)
 		{
@@ -52,7 +51,8 @@ namespace ProEventos.API
 				options.Password.RequireLowercase = false;
 				options.Password.RequireUppercase = false;
 				options.Password.RequiredLength = 4;
-			});
+                options.Lockout.MaxFailedAccessAttempts = 3;
+            });
 
 			//configurações de contexto e de roles, de usuário quem vai controlar o cadastro de usuário 
 			builder = new IdentityBuilder(builder.UserType, typeof(Role), builder.Services);
@@ -88,8 +88,11 @@ namespace ProEventos.API
 
 			services.AddScoped<IEventoService, EventoService>();
 			services.AddScoped<ILoteService, LoteService>();
+            services.AddScoped<ITokenService, TokenService>();
+            services.AddScoped<IAccountService, AccountService>();
+            services.AddScoped<IUtil, Util>();
 
-			services.AddScoped<IGeralPersist, GeralPersist>();
+            services.AddScoped<IGeralPersist, GeralPersist>();
 			services.AddScoped<IEventoPersist, EventoPersist>();
 			services.AddScoped<ILotePersist, LotePersist>();
 			services.AddCors();
