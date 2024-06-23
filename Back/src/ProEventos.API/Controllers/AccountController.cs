@@ -79,7 +79,7 @@ namespace ProEventos.API.Controllers
         {
             try
             {
-                var user = await _accountService.GetUserByUserNameAsync(userLogin.Username);
+                var user = await _accountService.GetUserByUserNameAsync(userLogin.UserName);
                 if (user == null) return Unauthorized("Usuário ou Senha está errado");
 
                 var result = await _accountService.CheckUserPasswordAsync(user, userLogin.Password);

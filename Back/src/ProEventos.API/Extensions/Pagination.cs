@@ -1,9 +1,6 @@
-using System.Text.Json;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using ProEventos.API.Models;
+using System.Text.Json;
 
 namespace ProEventos.API.Extensions
 {
