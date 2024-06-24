@@ -1,14 +1,9 @@
+import { ValidatorField } from './../../../helpers/ValidatorField';
+import { AbstractControlOptions, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormGroup } from '@angular/forms';
-import { UntypedFormControl } from '@angular/forms';
-import { AbstractControl } from '@angular/forms';
-import { UntypedFormBuilder } from '@angular/forms';
-import { Validators } from '@angular/forms';
-import { AbstractControlOptions } from '@angular/forms';
+import { User } from '../../../models/identity/User';
+import { AccountService } from '../../../services/account.service';
 import { Router } from '@angular/router';
-import { ValidatorField } from '@app/helpers/ValidatorField';
-import { User } from '@app/models/User';
-import { AuthService } from '@app/services/auth.service';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -18,16 +13,15 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class RegistrationComponent implements OnInit {
 
- registerForm: UntypedFormGroup;
- user: User;
+  user = {} as User;
+  form!: FormGroup;
 
-   constructor(private authService: AuthService
-    , public router: Router
-    , public fb: UntypedFormBuilder
-    , private toastr: ToastrService) {
-  }
+  constructor(private fb: FormBuilder,
+              private accountService: AccountService,
+              private router: Router,
+              private toaster: ToastrService) { }
 
-  get f(): any { return this.registerForm.controls; }
+  get f(): any { return this.form.controls; }
 
   ngOnInit(): void {
     this.validation();
@@ -36,49 +30,29 @@ export class RegistrationComponent implements OnInit {
   private validation(): void {
 
     const formOptions: AbstractControlOptions = {
-      validators: ValidatorField.MustMatch('password', 'confirmPassword')
+      validators: ValidatorField.MustMatch('password', 'confirmePassword')
     };
 
-    this.registerForm = this.fb.group({
-      fullName: ['', Validators.required],
-      email: ['',[Validators.required, Validators.email, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
+    this.form = this.fb.group({
+      primeiroNome: ['', Validators.required],
+      ultimoNome: ['', Validators.required],
+      email: ['',
+        [Validators.required, Validators.email]
+      ],
       userName: ['', Validators.required],
-      password: ['',[Validators.required, Validators.minLength(6)]],
-      confirmPassword: ['', Validators.required]
+      password: ['',
+        [Validators.required, Validators.minLength(4)]
+      ],
+      confirmePassword: ['', Validators.required],
     }, formOptions);
   }
 
-      public cssValidator(campoForm: UntypedFormControl | AbstractControl): any {
-      return {'is-invalid': campoForm.errors && campoForm.touched};
-  } 
-
-
- cadastrarUsuario() {
-    if (this.registerForm.valid) {
-        this.user = Object.assign(this.registerForm.value);
-               //     console.log(this.user);
-        this.authService.register(this.user).subscribe(
-        () => {
-          this.router.navigate(['/user/login']);
-          this.toastr.success('Cadastro Realizado');
-        }, error => {
-          const erro = error.error;
-          erro.forEach(element => {
-            switch (element.code) {
-              case 'DuplicateUserName':
-                this.toastr.error('Cadastro Duplicado!');
-                break;
-              case 'DuplicateEmail':
-                  this.toastr.error('Email Duplicado!');
-                  break;
-              default:
-                this.toastr.error(`Erro no Cadatro! CODE: ${element.code}`);
-                break;
-            }
-          });
-        }
-
-      );
-    }
+  register(): void {
+    this.user = { ...this.form.value };
+    this.accountService.register(this.user).subscribe(
+      () => this.router.navigateByUrl('/dashboard'),
+      (error: any) => this.toaster.error(error.error)
+    )
   }
+
 }

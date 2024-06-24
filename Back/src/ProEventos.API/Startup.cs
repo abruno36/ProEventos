@@ -68,9 +68,8 @@ namespace ProEventos.API
 					options.TokenValidationParameters = new TokenValidationParameters
 					{
 						ValidateIssuerSigningKey = true,
-						IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII
-				   		.GetBytes(Configuration.GetSection("AppSettings:Token").Value)),
-						ValidateIssuer = false,
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["TokenKey"])),
+                        ValidateIssuer = false,
 						ValidateAudience = false
 					};
 				}
@@ -125,7 +124,7 @@ namespace ProEventos.API
 			app.UseAuthentication();  
             app.UseAuthorization();  
 
-                        app.UseStaticFiles();
+            app.UseStaticFiles();
 			app.UseStaticFiles(new StaticFileOptions(){
 				FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), @"Resources")),
 				RequestPath = new PathString("/Resources")

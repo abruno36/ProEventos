@@ -1,10 +1,9 @@
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 
 namespace ProEventos.Api.Helpers
 {
@@ -39,8 +38,8 @@ namespace ProEventos.Api.Helpers
             if (!string.IsNullOrEmpty(imageName)) 
             {
                 var imagePath = Path.Combine(_hostEnvironment.ContentRootPath, @$"Resources/{destino}", imageName);
-                if (System.IO.File.Exists(imagePath))
-                    System.IO.File.Delete(imagePath);
+                if (File.Exists(imagePath))
+                    File.Delete(imagePath);
             }
         }
     }

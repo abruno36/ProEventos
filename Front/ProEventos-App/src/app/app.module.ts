@@ -17,6 +17,7 @@ import { CollapseModule } from 'ngx-bootstrap/collapse';
 
 import { EventoService } from './services/evento.service';
 import { LoteService } from './services/lote.service';
+import { AccountService } from './services/account.service';
 
 import { defineLocale } from 'ngx-bootstrap/chronos';
 import { ptBrLocale } from 'ngx-bootstrap/locale';
@@ -30,6 +31,7 @@ import { NavComponent } from './shared/nav/nav.component';
 import { TituloComponent } from './shared/titulo/titulo.component';
 import { EventoDetalheComponent } from './components/eventos/evento-detalhe/evento-detalhe.component';
 import { EventoListaComponent } from './components/eventos/evento-lista/evento-lista.component';
+import { PerfilDetalheComponent } from './components/user/perfil/perfil-detalhe/perfil-detalhe.component';
 
 import { DateTimeFormatPipe } from './helpers/DateTimeFormat.pipe';
 
@@ -57,6 +59,7 @@ defineLocale('pt-br', ptBrLocale);
     UserComponent,
     LoginComponent,
     PerfilComponent,
+    PerfilDetalheComponent,
     RegistrationComponent
    ],
    schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
@@ -84,6 +87,7 @@ defineLocale('pt-br', ptBrLocale);
     FormsModule
   ],
   providers: [
+    AccountService,
     EventoService,
     LoteService
   ],
