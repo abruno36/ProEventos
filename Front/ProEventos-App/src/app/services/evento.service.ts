@@ -21,6 +21,7 @@ export class EventoService {
   //}
 
   public getAllEvento(): Observable<Evento[]> {
+        console.log("baseURL - ", this.baseURL, "tokenHeader - ", this.tokenHeader);
         return this.http.get<Evento[]>(this.baseURL,  {headers: this.tokenHeader});
   }
 

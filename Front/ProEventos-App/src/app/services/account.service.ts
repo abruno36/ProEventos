@@ -15,6 +15,7 @@ export class AccountService {
   constructor(private http: HttpClient) { }
 
   public login(model: any): Observable<void> {
+    console.log("User - ", User);
     return this.http.post<User>(this.baseUrl + 'login', model).pipe(
       take(1),
       map((response: User) => {
