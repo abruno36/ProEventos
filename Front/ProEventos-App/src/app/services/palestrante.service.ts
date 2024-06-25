@@ -66,4 +66,3 @@ export class PalestranteService {
       .pipe(take(1));
   }
 }
-
