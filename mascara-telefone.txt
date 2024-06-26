@@ -1,0 +1,21 @@
+Mascara de Telefone - Angular
+Solução Completa
+Aqui está um exemplo completo de um componente que utiliza a máscara de telefone corretamente configurada:
+
+app.module.ts
+
+import { NgxMaskModule, IConfig } from 'ngx-mask';
+
+const maskConfig: Partial<IConfig> = {
+  validation: false,
+};
+
+NgxMaskModule.forRoot(maskConfig)
+
+telefone.component.html
+<input type="text" class="form-control" id="telefone" formControlName="telefone" mask="(00) 00000-0000" />
+</form>
+
+Referencia:
+evento-detalhe
+perfil-detalhe
