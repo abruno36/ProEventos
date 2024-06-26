@@ -70,7 +70,7 @@ export class PerfilDetalheComponent implements OnInit {
         titulo: ['NaoInformado', Validators.required],
         primeiroNome: ['', Validators.required],
         ultimoNome: ['', Validators.required],
-        email: ['', [Validators.required, Validators.email]],
+        email: ['', [Validators.required, Validators.email, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
         phoneNumber: ['', [Validators.required]],
         descricao: ['', Validators.required],
         funcao: ['NaoInformado', Validators.required],

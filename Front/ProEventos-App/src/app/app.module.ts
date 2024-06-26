@@ -15,6 +15,7 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { defineLocale } from 'ngx-bootstrap/chronos';
 import { ptBrLocale } from 'ngx-bootstrap/locale';
 import { NgxCurrencyModule } from 'ngx-currency';
+import { NgxMaskModule, IConfig } from 'ngx-mask';
 
 import { ToastrModule } from 'ngx-toastr';
 import { NgxSpinnerModule } from 'ngx-spinner';
@@ -48,6 +49,10 @@ import { HomeComponent } from './components/home/home.component';
 import { RedesSociaisComponent } from './components/redesSociais/redesSociais.component';
 
 defineLocale('pt-br', ptBrLocale);
+
+const maskConfig: Partial<IConfig> = {
+  validation: false,
+};
 
 @NgModule({
   declarations: [
@@ -92,6 +97,7 @@ defineLocale('pt-br', ptBrLocale);
       progressBar: true,
     }),
     NgxSpinnerModule,
+    NgxMaskModule.forRoot(maskConfig),
     NgxCurrencyModule,
   ],
   providers: [

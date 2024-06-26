@@ -135,7 +135,7 @@ export class EventoDetalheComponent implements OnInit {
       dataEvento: ['', Validators.required],
       qtdPessoas: ['', [Validators.required, Validators.max(120000)]],
       telefone: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
+      email: ['', [Validators.required, Validators.email, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
       imagemURL: [''],
       lotes: this.fb.array([]),
     });
