@@ -21,9 +21,10 @@ export class EventoListaComponent implements OnInit {
   public eventoId = 0;
   public pagination = {} as Pagination;
 
-  public larguraImagem = 150;
+  public larguraImagem = 80;
   public margemImagem = 2;
   public exibirImagem = true;
+  public tamanhoIcone = 40;
 
   termoBuscaChanged: Subject<string> = new Subject<string>();
 
