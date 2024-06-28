@@ -1,4 +1,8 @@
 Mascara de Telefone - Angular
+
+Deve instalar no angular:
+npm install ngx-mask --save --force
+
 Solução Completa
 Aqui está um exemplo completo de um componente que utiliza a máscara de telefone corretamente configurada:
 

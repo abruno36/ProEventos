@@ -1,5 +1,5 @@
 import { Evento } from './../models/Evento';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { take, map } from 'rxjs/operators';
@@ -13,7 +13,7 @@ export class EventoService {
   baseURL = environment.apiURL + 'api/eventos';
 
   constructor(private http: HttpClient) { }
-
+  
   public getEventos(page?: number, itemsPerPage?: number, term?: string): Observable<PaginatedResult<Evento[]>> {
     const paginatedResult: PaginatedResult<Evento[]> = new PaginatedResult<Evento[]>();
 

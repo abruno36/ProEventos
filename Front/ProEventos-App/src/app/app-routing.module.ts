@@ -32,13 +32,13 @@ const routes: Routes = [
       },
       { path: 'eventos', redirectTo: 'eventos/lista' },
       {
-        path: 'eventos',
-        component: EventosComponent,
-        children: [
-          { path: 'detalhe/:id', component: EventoDetalheComponent },
-          { path: 'detalhe', component: EventoDetalheComponent },
-          { path: 'lista', component: EventoListaComponent },
-        ],
+      path: 'eventos',
+      component: EventosComponent,
+      children: [
+        { path: 'detalhe/:id', component: EventoDetalheComponent },
+        { path: 'detalhe', component: EventoDetalheComponent },
+        { path: 'lista', component: EventoListaComponent },
+      ],
       },
       { path: 'dashboard', component: DashboardComponent },
       { path: 'palestrantes', component: PalestrantesComponent },
