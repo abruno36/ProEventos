@@ -56,6 +56,7 @@ export class AccountService {
     localStorage.removeItem('user');
     this.currentUserSource.next(null);
     this.currentUserSource.complete();
+    sessionStorage.removeItem('reloaded');
   }
 
   public setCurrentUser(user: User): void {
