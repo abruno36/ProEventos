@@ -21,6 +21,9 @@ namespace ProEventos.Persistence.Models
             PageSize = pageSize;
             CurrentPage = pageNumber;
             TotalPages = (int)Math.Ceiling(count / (double)pageSize);
+            //6 / 5.0 resulta em 1.2 páginas necessárias.
+            //Math.Ceiling arredonda 1.2 para cima, resultando em 2.
+            //Convertendo 2.0 para int resulta em 2.
             AddRange(items);
         }
 
