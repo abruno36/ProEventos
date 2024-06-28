@@ -44,7 +44,6 @@ export class PerfilDetalheComponent implements OnInit {
       .getUser()
       .subscribe(
         (userRetorno: UserUpdate) => {
-          console.log(userRetorno);
           this.userUpdate = userRetorno;
           this.form.patchValue(this.userUpdate);
           this.toaster.success('Usuário Carregado', 'Sucesso');
