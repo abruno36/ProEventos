@@ -69,7 +69,7 @@ export class PalestranteDetalheComponent implements OnInit {
           .put({...this.form.value })
           .subscribe(
             () => {
-              this.situacaoDoForm = 'Minicurrículo foi ataulizado!';
+              this.situacaoDoForm = 'Minicurrículo foi atualizado!';
               this.corDaDescricao = 'text-success';
 
               setTimeout(() => {
