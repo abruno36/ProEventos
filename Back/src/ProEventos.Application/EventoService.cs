@@ -11,14 +11,11 @@ namespace ProEventos.Application
 {
     public class EventoService : IEventoService
     {
-        private readonly IGeralPersist _geralPersist;
         private readonly IEventoPersist _eventoPersist;
         private readonly IMapper _mapper;
-        public EventoService(IGeralPersist geralPersist,
-                             IEventoPersist eventoPersist,
+        public EventoService(IEventoPersist eventoPersist,
                              IMapper mapper)
         {
-            _geralPersist = geralPersist;
             _eventoPersist = eventoPersist;
             _mapper = mapper;
         }
@@ -29,9 +26,9 @@ namespace ProEventos.Application
                 var evento = _mapper.Map<Evento>(model);
                 evento.UserId = userId;
 
-                _geralPersist.Add<Evento>(evento);
+                _eventoPersist.Add<Evento>(evento);
 
-                if (await _geralPersist.SaveChangesAsync())
+                if (await _eventoPersist.SaveChangesAsync())
                 {
                     var eventoRetorno = await _eventoPersist.GetEventoByIdAsync(userId, evento.Id, false);
 
@@ -57,9 +54,9 @@ namespace ProEventos.Application
 
                 _mapper.Map(model, evento);
 
-                _geralPersist.Update<Evento>(evento);
+                _eventoPersist.Update<Evento>(evento);
 
-                if (await _geralPersist.SaveChangesAsync())
+                if (await _eventoPersist.SaveChangesAsync())
                 {
                     var eventoRetorno = await _eventoPersist.GetEventoByIdAsync(userId, evento.Id, false);
 
@@ -80,8 +77,8 @@ namespace ProEventos.Application
                 var evento = await _eventoPersist.GetEventoByIdAsync(userId, eventoId, false);
                 if (evento == null) throw new Exception("Evento para delete não encontrado.");
 
-                _geralPersist.Delete<Evento>(evento);
-                return await _geralPersist.SaveChangesAsync();
+                _eventoPersist.Delete<Evento>(evento);
+                return await _eventoPersist.SaveChangesAsync();
             }
             catch (Exception ex)
             {

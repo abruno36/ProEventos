@@ -8,10 +8,10 @@ using ProEventos.Persistence.Models;
 
 namespace ProEventos.Persistence
 {
-    public class EventoPersist : IEventoPersist
+    public class EventoPersist : GeralPersist, IEventoPersist
     {
         private readonly ProEventosContext _context;
-        public EventoPersist(ProEventosContext context)
+        public EventoPersist(ProEventosContext context) : base(context)
         {
             _context = context;
             // _context.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
