@@ -1,11 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using ProEventos.Domain.Identity;
 using ProEventos.Persistence.Contextos;
 using ProEventos.Persistence.Contratos;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace ProEventos.Persistence
 {
