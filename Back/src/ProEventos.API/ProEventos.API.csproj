@@ -31,8 +31,5 @@
   <ItemGroup>
     <ProjectReference Include="..\ProEventos.Application\ProEventos.Application.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\Perfil\" />
-  </ItemGroup>
 </Project>
 
