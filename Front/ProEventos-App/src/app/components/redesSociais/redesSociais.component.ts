@@ -51,7 +51,6 @@ export class RedesSociaisComponent implements OnInit {
         },
         (error: any) => {
           this.toastr.error('Erro ao tentar carregar Rede Social', 'Erro');
-          console.error(error);
         }
       ).add(() => this.spinner.hide());
   }
@@ -97,7 +96,6 @@ export class RedesSociaisComponent implements OnInit {
           },
           (error: any) => {
             this.toastr.error('Erro ao tentar salvar Redes Sociais.', 'Erro');
-            console.error(error);
           }
         )
         .add(() => this.spinner.hide());
@@ -131,7 +129,6 @@ export class RedesSociaisComponent implements OnInit {
             `Erro ao tentar deletar o Rede Social ${this.redeSocialAtual.id}`,
             'Erro'
           );
-          console.error(error);
         }
       )
       .add(() => this.spinner.hide());

@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PalestranteService } from '@app/services/palestrante.service';
-import { BsModalService } from 'ngx-bootstrap/modal';
 import { ToastrService } from 'ngx-toastr';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 import { Palestrante } from '@app/models/Palestrante';
@@ -22,10 +20,8 @@ export class PalestranteListaComponent implements OnInit {
 
   constructor(
     private palestranteService: PalestranteService,
-    private modalService: BsModalService,
     private toastr: ToastrService,
-    private spinner: NgxSpinnerService,
-    private router: Router
+    private spinner: NgxSpinnerService
   ) { }
 
   public ngOnInit(): void {

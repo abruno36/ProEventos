@@ -49,7 +49,6 @@ export class PerfilDetalheComponent implements OnInit {
           this.toaster.success('Usuário Carregado', 'Sucesso');
         },
         (error) => {
-          console.error(error);
           this.toaster.error('Usuário não Carregado', 'Erro');
           this.router.navigate(['/dashboard']);
         }
@@ -98,7 +97,6 @@ export class PerfilDetalheComponent implements OnInit {
         () => this.toaster.success('Função palestrante Ativada!', 'Sucesso!'),
         (error) => {
           this.toaster.error('A função palestrante não pode ser Ativada', 'Error');
-          console.error(error);
         }
       )
     }
@@ -109,7 +107,6 @@ export class PerfilDetalheComponent implements OnInit {
         () => this.toaster.success('Usuário atualizado!', 'Sucesso'),
         (error) => {
           this.toaster.error(error.error);
-          console.error(error);
         }
       )
       .add(() => this.spinner.hide());

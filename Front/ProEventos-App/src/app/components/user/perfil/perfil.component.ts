@@ -57,7 +57,6 @@ export class PerfilComponent implements OnInit {
         () => this.toastr.success('Imagem atualizada com Sucesso', 'Sucesso!'),
         (error: any) => {
           this.toastr.error('Erro ao fazer upload de imagem','Erro!');
-          console.error(error);
         }
       ).add(() => this.spinner.hide());
   }
