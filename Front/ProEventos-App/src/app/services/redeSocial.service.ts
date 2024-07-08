@@ -32,7 +32,7 @@ export class RedeSocialService {
    *
    * @param origem Precisa passar a palavra 'palestrante' ou 'evento' - Escrito em minúsculo.
    * @param id Precisa passar o PalestranteId ou o EventoId dependendo da sua Origem.
-   * @param redesSociais Precia adicionar Redes Sociais organizadas em RedeSocial[].
+   * @param redesSociais Precisa adicionar Redes Sociais organizadas em RedeSocial[].
    * @returns Observable<RedeSocial[]>
    */
   public saveRedesSociais(
@@ -52,7 +52,7 @@ export class RedeSocialService {
    *
    * @param origem Precisa passar a palavra 'palestrante' ou 'evento' - Escrito em minúsculo.
    * @param id Precisa passar o PalestranteId ou o EventoId dependendo da sua Origem.
-   * @param redeSocialId Precia usar o id da Rede Social
+   * @param redeSocialId Precisa usar o id da Rede Social
    * @returns Observable<any> - Pois é o retorno da Rota.
    */
     public deleteRedeSocial(
