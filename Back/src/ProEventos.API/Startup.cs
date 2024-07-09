@@ -38,7 +38,7 @@ namespace ProEventos.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ProEventosContext>(
-                context => context.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
+                context => context.UseSqlite(Configuration.GetConnectionString("DefaultConnection"))
             );
 
             services.AddIdentityCore<User>(options =>

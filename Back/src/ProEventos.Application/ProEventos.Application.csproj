@@ -7,6 +7,7 @@
   <ItemGroup>
     <ProjectReference Include="..\ProEventos.Domain\ProEventos.Domain.csproj" />
     <ProjectReference Include="..\ProEventos.Persistence\ProEventos.Persistence.csproj" />
+	<Reference Include="netstandard"><Private>True</Private></Reference>
   </ItemGroup>
   
     <ItemGroup>

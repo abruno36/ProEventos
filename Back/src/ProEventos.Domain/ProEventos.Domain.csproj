@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+  	<Reference Include="netstandard"><Private>True</Private></Reference>
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.16" />
   </ItemGroup>
 

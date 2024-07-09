@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ProEventos.Domain\ProEventos.Domain.csproj" />
+    <Reference Include="netstandard"><Private>True</Private></Reference>
   </ItemGroup>
 
   <ItemGroup>

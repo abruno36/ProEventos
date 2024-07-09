@@ -8,6 +8,7 @@
     <Compile Remove="Resources\Perfil - Copy\**" />
     <Content Remove="Resources\Perfil - Copy\**" />
     <EmbeddedResource Remove="Resources\Perfil - Copy\**" />
+	 <Reference Include="netstandard"><Private>True</Private></Reference>
     <None Remove="Resources\Perfil - Copy\**" />
   </ItemGroup>
   <ItemGroup>
@@ -30,6 +31,9 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ProEventos.Application\ProEventos.Application.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\Perfil\" />
   </ItemGroup>
 </Project>
 
